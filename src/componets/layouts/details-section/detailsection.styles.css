@@ -43,17 +43,3 @@
     line-height: 1.7rem;
 }
 
-.cart-button{
-    display: inline-block;
-    text-decoration: none;
-    padding: 1rem 2rem;
-    background-color: var(--primary-color);
-    color:#fff;
-    transition: 0.3s ease-in;
-    margin-top: 2rem;
-    box-shadow:2px 2px 5px #ddd;
-}
-
-.cart-button:hover{
-    background-color: var(--primary-color-bright);
-}

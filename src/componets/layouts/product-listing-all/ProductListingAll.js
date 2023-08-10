@@ -4,7 +4,6 @@ import ProductListingCard from "../../cards/product-listing-card/ProductListingC
 import {BookData} from '../../../util/BookData';
 
 const ProductListingAll = () => {
-    console.log(BookData)
     return(
         <section className="product-listing-all-container">
             <div className="container">

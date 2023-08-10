@@ -28,7 +28,7 @@ const DetailSection = () => {
                         <p><b>Book Lenght:</b> {bookData.print_length}</p>
                         <h3>&#165;{bookData.price}</h3>
 
-                        <a href="#" className="cart-button">Add to cart</a>
+                        <a href="#" className="button-primary">Add to cart</a>
                     </div>
                 </div>
             </div>
