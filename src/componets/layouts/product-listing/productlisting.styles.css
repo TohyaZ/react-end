@@ -1,0 +1,17 @@
+.product-listing-container{
+    margin-top: 2.5%;
+    margin-bottom: 5%;
+}
+
+.listing-container{
+    padding-top:2.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap:3rem;
+}
+
+.container h2{
+    font-family: Lobster;
+    font-weight: 500;
+    color:var(--primary-color)
+}

@@ -1,0 +1,14 @@
+.search-container{
+    width: 40%;
+    margin: auto;
+    padding-top:2.5%;
+}
+
+.search-container h2{
+    text-align: center;
+    font-family: Lobster;
+    padding-bottom: 1rem;
+    color:var(--primary-color);
+    font-size: 2rem;
+    font-weight: 500;
+}

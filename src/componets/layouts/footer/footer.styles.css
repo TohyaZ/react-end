@@ -1,0 +1,49 @@
+.footer-container{
+    background-color: #000;
+    padding:3rem 0;
+    color:#fff;
+}
+
+.footer-form{
+    margin-top: 3rem;
+    width: 40%;
+}
+
+.form-group{
+    padding: 0.5rem 0;
+}
+
+.form-label{
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.form-input{
+    width: 100%;
+    padding:1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.form-submit{
+    display: inline-block;
+    text-decoration: none;
+    color:#fff;
+    background-color: var(--primary-color);
+    padding: 0.6rem 2rem;
+    transition: 0.3s ease-in;
+    font-family: Lobster;
+    border-radius: 3px;
+}
+
+.form-submit:hover{
+    background-color: var(--primary-color-bright);
+}
+
+.container-copy{
+    font-family: Lobster;
+    padding-top:0.8rem;
+    font-size: 0.8rem;
+}
