@@ -23,6 +23,11 @@
     align-items: center;
 }
 
+.cart-link{
+    display: inline-block;
+    padding-left: 0.5rem;
+    cursor: pointer;
+}
 .nav-links , .nav-links-dark{
     color:#fff;
     text-decoration: none;
@@ -30,6 +35,7 @@
     font-family: Lobster;
     padding:8px;
     transition:0.2s ease-in;
+    cursor: pointer;
 }
 
 .nav-links-dark{

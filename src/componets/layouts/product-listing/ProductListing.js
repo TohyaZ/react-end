@@ -10,7 +10,7 @@ const ProductListing = () => {
 
             <div className="listing-container">
                 {BookData.slice(0,4).map((book) => (
-                    <ProductListingCard bookData={book} />
+                    <ProductListingCard key={book.id} bookData={book} />
                 ))}
             </div>
             </div>

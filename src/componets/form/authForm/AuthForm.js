@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import app from '../../../firebase/Firebase';
-import {getAuth , createUserWithEmailAndPassword} from 'firebase/auth'
+import {getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword } from 'firebase/auth'
 
 const AuthForm = ({buttonName}) => {
     const [email , setEmail] = useState('');
@@ -9,41 +9,47 @@ const AuthForm = ({buttonName}) => {
     const [username, setUsername] = useState('');
     const navigate = useNavigate();
 
-    // const handleChange = (event) => {
-    //     if(event.target.type === 'email') {
-    //         setEmail(event.target.value);
-    //     } else if (event.target.type === 'password'){
-    //         setPassword(event.target.value);
-    //     }
-    // }
 
     const handlesubmit = (event) =>{
         event.preventDefault();
         const auth = getAuth(app);
 
-        createUserWithEmailAndPassword(auth,email,password)
-        .then((userCredentials)=>{
+        if(buttonName === 'Login') {
+            signInWithEmailAndPassword(auth, email, password)
+            .then(() => {
+                navigate('/')
+            })
+            .catch((err) => console.log(err));
+
+        } else {
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredentials)=>{
             userCredentials.user.displayName = username;
 
             navigate('/');
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+
+        }
     }
 
     return(
     <form onSubmit={handlesubmit}>
-        <div className="form-group">
-            <label>Username</label>
-            <input 
-                type="text" 
-                className="form-input" 
-                placeholder="Enter your username"
-                value={username}
-                onChange={(event)=> setUsername(event.target.value)}
-            />
-        </div>
+        {buttonName === "Sign Up" && (
+            <div className="form-group">
+                <label>Username</label>
+                <input 
+                    type="text" 
+                    className="form-input" 
+                    placeholder="Enter your username"
+                    value={username}
+                    onChange={(event)=> setUsername(event.target.value)}
+                    required
+                />
+            </div>
+        )}
 
         <div className="form-group">
             <label>Email</label>
@@ -53,6 +59,7 @@ const AuthForm = ({buttonName}) => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(event)=> setEmail(event.target.value)}
+                required
             />
         </div>
 
@@ -64,6 +71,7 @@ const AuthForm = ({buttonName}) => {
                 placeholder="Enter your password" 
                 value={password}
                 onChange={(event)=> setPassword(event.target.value)}
+                required
             />
         </div>
 
