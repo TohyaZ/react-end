@@ -1,16 +1,32 @@
-import React , { useState ,useEffect} from "react";
+import React , { useState ,useEffect , useContext} from "react";
 import './detailsection.styles.css'
-import { useParams } from "react-router-dom";
+import { useParams , useNavigate } from "react-router-dom";
 import { BookData } from "../../../util/BookData";
+import { CartContext, UserContext } from "../../../App";
 
 const DetailSection = () => {
     const {id} = useParams();
     const [bookData , setBookData] = useState({});
 
+    const user = useContext(UserContext);
+    const {cartItems , setCartItems} = useContext(CartContext);
+    const navigate = useNavigate();
+
     useEffect (()=>{
         let newData = BookData.filter((book)=> book.id === parseInt(id))
         setBookData(newData[0])
     },[])
+
+
+    const handleAddToCart =() => {
+        if(user) {
+            setCartItems([...cartItems, bookData]);
+            alert(`Đã thêm ${bookData.book_name} vào giỏ hàng`)
+        }else {
+            navigate('/login')
+            alert('Vui lòng đăng nhập trước khi thanh toán')
+        }
+    }
 
     return(
         <section className="detail-section-container">
@@ -28,7 +44,7 @@ const DetailSection = () => {
                         <p><b>Book Lenght:</b> {bookData.print_length}</p>
                         <h3>&#165;{bookData.price}</h3>
 
-                        <a href="#" className="button-primary">Add to cart</a>
+                        <a onClick={handleAddToCart} className="button-primary">Add to cart</a>
                     </div>
                 </div>
             </div>
